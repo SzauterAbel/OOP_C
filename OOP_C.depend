@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1665519121 source:/home/abelsz/Abel/C/OOP_C/Point.c
+	"Point.h"
+	<stdio.h>
+	<stdlib.h>
+
+1665519014 /home/abelsz/Abel/C/OOP_C/Point.h
+
+1665518456 source:/home/abelsz/Abel/C/OOP_C/Main.c
+	<stdio.h>
+	<stdlib.h>
+
+1665308986 /home/abelsz/Abel/C/OOP_C/Point.c
+	"Point.h"
+
