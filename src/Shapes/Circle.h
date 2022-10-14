@@ -7,14 +7,12 @@
 typedef struct _Circle Circle;
 
 struct _Circle {
-    Shape* super;
+    // Stored as a value, not a pointer, so we can cast freely.
+    // The pointer to the first element of the instantiated struct is the same as the pointer to the instantiated struct.
+    Shape super;
     int r;
 };
 
-Circle* new_Circle(int);
-void free_Circle(Circle*);
-float calculateArea_Circle(Shape*);
-float calculateSurface_Circle(Shape*);
-
+Shape* new_Circle(int); // Returns Shape*, so the user can call the Shape:: functions with it.
 
 #endif //CIRCLE_H
