@@ -6,14 +6,10 @@
 typedef struct _Shape Shape;
 
 struct _Shape {
-    float(*calculateArea)(Shape*);
-    float(*calculateSurface)(Shape*);
+    double(*calculateArea)(Shape*);
+    double(*calculateSurface)(Shape*);
 
     void (*free_fn)(Shape*);
 }; // Shape abstract class
-
-float calculateArea_Shape(Shape*);
-float calculateSurface_Shape(Shape*);
-void free_Shape(Shape*);
 
 #endif //SHAPE_H
