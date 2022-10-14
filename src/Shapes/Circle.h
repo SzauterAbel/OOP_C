@@ -1,7 +1,6 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
-#include <stdlib.h>
 #include "Shape.h"
 
 typedef struct _Circle Circle;
