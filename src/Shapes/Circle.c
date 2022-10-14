@@ -1,31 +1,29 @@
 #include "Circle.h"
 #include <stdlib.h>
 
-Circle* new_Circle(int r) {
-    Circle* self = malloc(sizeof(Circle));
-    Shape* sh =  malloc(sizeof(Shape));
-    self->super = sh;
+static void _free(Shape* self) {
+    // If we had dynamically allocated attributes, they would be freed here.
+    // `r` does not need to be freed.
+}
 
-    self->super->calculateArea = calculateArea_Circle;
-    self->super->calculateSurface = calculateSurface_Circle;
-    
+static float _calculateArea(Shape* super) {
+    Circle *self = (Circle*)super;
+    return self->r * self->r * 3.14;
+}
+
+static float _calculateSurface(Shape* super) {
+    Circle *self = (Circle*)super;
+    return self->r * self->r * 3.14;
+}
+
+Shape* new_Circle(int r) {
+    Circle* self = malloc(sizeof(Circle));
+
+    self->super.calculateArea = _calculateArea;
+    self->super.calculateSurface = _calculateSurface;
+    self->super.free_fn = _free;
+
     self->r = r;
 
-
-    return self;
-}
-
-void free_Circle(Circle* self) {
-    free(self->super);
-    free(self);
-}
-
-float calculateArea_Circle(Shape* super) {
-    Circle *self = (Circle*)super;
-    return self->r * self->r * 3.14;
-}
-
-float calculateSurface_Circle(Shape* super) {
-    Circle *self = (Circle*)super;
-    return self->r * self->r * 3.14;
+    return &self->super;
 }

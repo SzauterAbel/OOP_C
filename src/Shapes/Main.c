@@ -5,13 +5,13 @@
 int main()
 {
 
-    Circle* c1 = new_Circle(10);
-    float area = c1->super->calculateArea(c1->super);
-    float surface = c1->super->calculateSurface(c1->super);
+    Shape* c1 = new_Circle(10);
+    float area = calculateArea_Shape(c1);
+    float surface = calculateSurface_Shape(c1);
 
     printf("Area: %f, Surface: %f\n", area, surface);
-    
-    free_Circle(c1);
+
+    free_Shape(c1);
 
     return 0;
 }
